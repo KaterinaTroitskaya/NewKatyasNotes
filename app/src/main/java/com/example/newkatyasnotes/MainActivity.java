@@ -1,6 +1,7 @@
 package com.example.newkatyasnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.res.Configuration;
 import android.media.VolumeShaper;
@@ -12,11 +13,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.notes, NotesFragment.newInstance()).commit();
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            getSupportFragmentManager().beginTransaction().replace(R.id.texts, TextsFragment.newInstance()).commit();
+        if(savedInstanceState==null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.notes_container, NotesFragment.newInstance())
+                    .commit();
         }
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment backStackFragment = (Fragment) getSupportFragmentManager()
+                .findFragmentById(R.id.notes_container);
+        if (backStackFragment!= null&&backStackFragment instanceof TextsFragment) {
+            onBackPressed();
+        }
     }
 }

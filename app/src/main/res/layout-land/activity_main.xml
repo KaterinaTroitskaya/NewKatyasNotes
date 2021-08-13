@@ -7,13 +7,13 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/notes"
+        android:id="@+id/notes_container"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"/>
 
     <FrameLayout
-        android:id="@+id/texts"
+        android:id="@+id/texts_container"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"/>
