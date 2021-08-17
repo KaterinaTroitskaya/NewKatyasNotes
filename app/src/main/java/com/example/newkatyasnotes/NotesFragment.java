@@ -94,7 +94,7 @@ public class NotesFragment extends Fragment {
             requireActivity()
                     .getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.notes_container, TextsFragment.newInstance(currentNote))
+                    .replace(R.id.texts_container, TextsFragment.newInstance(currentNote))
                     .commit();
     }
 }
