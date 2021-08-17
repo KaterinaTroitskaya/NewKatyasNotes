@@ -32,9 +32,7 @@ public class TextsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_texts, container, false);
-        TextView namestextView = view.findViewById(R.id.namesTextView);
         TextView textstextView = view.findViewById(R.id.textsTextView);
-        namestextView.setText(this.note.getNoteName());
 
         String[] resArray = getResources().getStringArray(R.array.notes_texts);
         textstextView.setText(resArray[this.note.getTextIndex()]);
