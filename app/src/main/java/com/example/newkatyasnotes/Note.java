@@ -3,13 +3,9 @@ package com.example.newkatyasnotes;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
 public class Note implements Parcelable {
     private String noteName;
     private int textIndex;
-    private String noteText;
-    Date noteDate;
 
     public Note(int textIndex, String noteName) {
         this.noteName = noteName;
@@ -52,26 +48,11 @@ public class Note implements Parcelable {
         this.textIndex = textIndex;
     }
 
-    public void setNoteText(String noteText) {
-        this.noteText = noteText;
-    }
-
-    public void setNoteDate(Date noteDate) {
-        this.noteDate = noteDate;
-    }
 
     public String getNoteName() {
         return noteName;
     }
 
-    public String getNoteText() {
-
-        return noteText;
-    }
-
-    public Date getNoteDate() {
-        return noteDate;
-    }
 
     public int getTextIndex() {
         return textIndex;

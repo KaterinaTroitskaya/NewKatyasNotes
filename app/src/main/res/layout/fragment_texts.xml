@@ -6,13 +6,13 @@
     android:background="@color/purple_700">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/notesNameView"
+        android:id="@+id/namesTextView"
         android:textSize="@dimen/textsize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/notesTextView"
+        android:id="@+id/textsTextView"
         android:textSize="@dimen/textsize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

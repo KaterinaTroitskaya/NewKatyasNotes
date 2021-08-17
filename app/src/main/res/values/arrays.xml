@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="notes_names">
-        <item>DatePicker</item>
-        <item>string-array</item>
+        <item>Первая заметка</item>
+        <item>Вторая заметка</item>
     </string-array>
 
     <string-array name="notes_texts">
-        <item>The DatePicker control allows the user to enter a date as text or to select a date from a calendar popup. The calendar is based on either the standard ISO-8601 chronology or any of the other chronology classes defined in the java.time.chrono package.</item>
-        <item>Ресурсы массивов строк представляют элемент типа string-array. Они могут находится в каталоге res/values в xml-файле с произвольным именем.</item>
+        <item>Вот такая отличная первая заметка</item>
+        <item>Не менее замечательная вторая заметка</item>
     </string-array>
 
 

@@ -1,11 +1,9 @@
 package com.example.newkatyasnotes;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.content.res.Configuration;
-import android.media.VolumeShaper;
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 

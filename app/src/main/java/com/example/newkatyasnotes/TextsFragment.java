@@ -1,15 +1,11 @@
 package com.example.newkatyasnotes;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class TextsFragment extends Fragment {
@@ -35,15 +31,15 @@ public class TextsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_texts, container, false);
-        TextView textView = view.findViewById(R.id.notesTextView);
-        TextView nameView = view.findViewById(R.id.notesNameView);
-        nameView.setText(this.note.getNoteName());
+        View view = inflater.inflate(R.layout.fragment_texts, container, false);
+        TextView namestextView = view.findViewById(R.id.namesTextView);
+        TextView textstextView = view.findViewById(R.id.textsTextView);
+        namestextView.setText(this.note.getNoteName());
 
-        TypedArray typedArray = getResources().obtainTypedArray(R.array.notes_texts);
-        textView.setText(typedArray.getResourceId(this.note.getTextIndex(),-1));
+        String[] resArray = getResources().getStringArray(R.array.notes_texts);
+        textstextView.setText(resArray[this.note.getTextIndex()]);
 
-       return view;
+        return view;
 
     }
 }

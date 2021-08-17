@@ -1,6 +1,7 @@
 package com.example.newkatyasnotes;
 
 import android.content.res.Configuration;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class NotesFragment extends Fragment {
@@ -30,13 +33,12 @@ public class NotesFragment extends Fragment {
             currentNote = savedInstanceState.getParcelable(KEY_NOTE);
         }
         Log.d("mylogs", "currentNote!=null " + (currentNote != null));
-        if (isLandScape)
-            if (currentNote != null) {
+        if(isLandScape)
+            if(currentNote!=null){
                 showNotesTexts(currentNote.getTextIndex());
             } else {
                 showNotesTexts(0);
             }
-
     }
 
     @Override
@@ -49,6 +51,7 @@ public class NotesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes, container, false);
         LinearLayout linearLayout = (LinearLayout) view;
+
         String[] notes = getResources().getStringArray(R.array.notes_names);
 
         for (int i = 0; i < notes.length; i++) {
@@ -61,7 +64,7 @@ public class NotesFragment extends Fragment {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    currentNote = new Note(finalI, (getResources().getStringArray(R.array.notes_names)[finalI]));
+                    showNotesTexts(finalI);
                 }
             });
         }
@@ -88,10 +91,10 @@ public class NotesFragment extends Fragment {
     }
 
     private void showNotesTextsLand() {
-        requireActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.notes_container, TextsFragment.newInstance(currentNote))
-                .commit();
+            requireActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.notes_container, TextsFragment.newInstance(currentNote))
+                    .commit();
     }
 }
