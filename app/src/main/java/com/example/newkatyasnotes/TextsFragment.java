@@ -35,7 +35,8 @@ public class TextsFragment extends Fragment {
         TextView textstextView = view.findViewById(R.id.textsTextView);
 
         String[] resArray = getResources().getStringArray(R.array.notes_texts);
-        textstextView.setText(resArray[this.note.getTextIndex()]);
+        textstextView.setText(this.note.getNoteName());
+        textstextView.setText(this.note.getNoteText());
 
         return view;
 

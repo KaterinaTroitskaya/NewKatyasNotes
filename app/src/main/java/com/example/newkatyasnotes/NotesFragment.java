@@ -27,15 +27,12 @@ public class NotesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isLandScape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-
-        Log.d("mylogs", "savedInstanceState!=null " + (savedInstanceState != null));
         if (savedInstanceState != null) {
             currentNote = savedInstanceState.getParcelable(KEY_NOTE);
         }
-        Log.d("mylogs", "currentNote!=null " + (currentNote != null));
         if(isLandScape)
             if(currentNote!=null){
-                showNotesTexts(currentNote.getTextIndex());
+                showNotesTexts(currentNote.describeContents());
             } else {
                 showNotesTexts(0);
             }
@@ -72,11 +69,11 @@ public class NotesFragment extends Fragment {
     }
 
     private void showNotesTexts(int index) {
-        currentNote = new Note(index,
-                (getResources().getStringArray(R.array.notes_names)[index]));
+        currentNote = new Note(getResources().getStringArray(R.array.notes_names)[index],
+                getResources().getStringArray(R.array.notes_texts)[index]) ;
         if (isLandScape) {
             showNotesTextsLand();
-        } else { // port
+        } else {
             showNotesTextsPort();
         }
     }
