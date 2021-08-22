@@ -6,10 +6,28 @@ import android.os.Parcelable;
 public class Note implements Parcelable {
     private String noteName;
     private String noteText;
+    private int index;
 
-    public Note(String noteName, String noteText) {
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(Parcel in) {
+            return new Note(in);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
+
+    public int getIndex() {
+        return index;
+    }
+
+    public Note(String noteName, String noteText, int index) {
         this.noteName = noteName;
         this.noteText = noteText;
+        this.index = index;
     }
 
     protected Note(Parcel in) {

@@ -70,7 +70,7 @@ public class NotesFragment extends Fragment {
 
     private void showNotesTexts(int index) {
         currentNote = new Note(getResources().getStringArray(R.array.notes_names)[index],
-                getResources().getStringArray(R.array.notes_texts)[index]) ;
+                getResources().getStringArray(R.array.notes_texts)[index],index) ;
         if (isLandScape) {
             showNotesTextsLand();
         } else {
